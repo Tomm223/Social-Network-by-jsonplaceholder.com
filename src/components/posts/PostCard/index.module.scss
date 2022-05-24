@@ -1,0 +1,51 @@
+@import '../../../styles/variable.scss';
+
+.card {
+   padding: 1rem 2rem;
+   border: 1px solid $borderBlurColor;
+
+   &:hover {
+      border: 1px solid $borderOnColor;
+   }
+
+   &Title {
+      font-size: $fontSizeTitleCard;
+      font-weight: 500;
+   }
+
+   &Name {
+      font-size: $fontSizeNameCard;
+      line-height: calc($fontSizeNameCard + 5px);
+      font-weight: 700;
+      display: flex;
+      margin-bottom: 1rem;
+   }
+
+   &Supp {
+      color: $fontColorPlaceHolder;
+      font-weight: 400;
+      white-space: nowrap;
+      margin-right: .5rem;
+   }
+
+   &Preview {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+
+      &::after {
+         content: '...';
+         position: absolute;
+         bottom: 0;
+         right: 0;
+         background-color: #fff;
+      }
+   }
+
+   &Body {
+      white-space: nowrap;
+
+   }
+
+
+}

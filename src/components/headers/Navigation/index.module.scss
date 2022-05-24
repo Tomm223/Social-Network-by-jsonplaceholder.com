@@ -1,0 +1,25 @@
+@import '../../../styles/variable.scss';
+
+.nav {
+
+   &List {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+   }
+
+   &Item {
+      width: 100%;
+      height: 100%;
+      padding: 0 0.5rem;
+   }
+
+   &Btn {
+      width: 100%;
+      height: 100%;
+      padding: 10px 20px;
+      font-size: 0.875rem;
+      font-family: $fontFamily;
+      font-weight: 600;
+   }
+}

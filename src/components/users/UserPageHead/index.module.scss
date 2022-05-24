@@ -1,0 +1,29 @@
+@import '../../../styles/variable.scss';
+
+.user {
+
+   &Head {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1em;
+   }
+
+   &Ava {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background-color: $borderBlurColor;
+      display: flex;
+      justify-self: start;
+      justify-content: center;
+      overflow: hidden;
+      margin-right: 1em;
+
+      &Img {}
+   }
+
+   &Title {
+      font-size: $fontSizeLogo;
+
+   }
+}
