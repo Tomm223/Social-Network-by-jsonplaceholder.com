@@ -1,14 +1,27 @@
-import { FC } from 'react'
+import { FC, useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { handlePostCard } from '../../assests/navigate'
 import PostCard from '../../components/posts/PostCard'
 import UserInfoList from '../../components/users/UserInfoList'
 import UserInfo from '../../components/users/UserInfoList'
 import UserPageHead from '../../components/users/UserPageHead'
+import { getPostsByUserId, getPosts } from '../../fetch'
+import { useNavigateParams } from '../../hooks/useNavigateParams'
+import { PostType } from '../../types/post'
 import { User } from '../../types/user'
 import styles from './index.module.scss'
 
 
 const UserPage: FC = () => {
 
+   const [list, setList] = useState<PostType[]>([])
+   useEffect(() => {
+      const getPost = async () => {
+         const resp = await getPostsByUserId(3)
+         setList(resp)
+      }
+      getPost()
+   })
    const user: User = {
       id: 1,
       name: "Leanne Graham",
@@ -32,8 +45,9 @@ const UserPage: FC = () => {
          bs: "harness real-time e-markets"
       }
    }
+   // navigate for post 
+   const navigateSearch = useNavigateParams()
 
-   const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 1]
    return (
       <div className={styles.user}>
          <UserPageHead username={user.username} />
@@ -42,9 +56,11 @@ const UserPage: FC = () => {
          <hr className={styles.userHR} />
          <h3 className={styles.userPostsTitle}>Посты</h3>
          <div className={styles.userPosts}>
-            {arr.map((item: number) => {
+            {list.map((post: PostType) => {
                return (
-                  <PostCard />
+                  <PostCard
+                     onClick={() => navigateSearch('/posts/', { id: post.id })}
+                     post={post} />
                )
             })}
          </div>

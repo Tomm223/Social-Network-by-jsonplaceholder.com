@@ -1,0 +1,20 @@
+.comments {
+  padding-bottom: 2em;
+}
+.commentsTitle {
+  margin-bottom: 2em;
+}
+.commentsSupp {
+  font-size: 1.75rem;
+  color: rgba(0, 0, 0, 0.41);
+  font-weight: 600;
+}
+.commentsList {
+  width: 80%;
+  margin: 0 auto;
+  margin-bottom: 1em;
+}
+.commentsBtn {
+  width: 15em;
+  margin: 0 auto;
+}/*# sourceMappingURL=index.module.css.map */

@@ -1,19 +1,24 @@
 import { FC } from 'react'
+import { PostType } from '../../../types/post'
 import styles from './index.module.scss'
 
+interface PostCardProps {
+   post: PostType
+   onClick: () => void
+}
 
-const PostCard: FC = () => {
+const PostCard: FC<PostCardProps> = ({ post, onClick }) => {
    return (
-      <div className={styles.card}>
+      <div onClick={onClick} className={styles.card}>
          <h3 className={styles.cardTitle}>
-            Пост №43
+            Пост №{post.id}
          </h3>
          <hr />
          <p className={styles.cardName}>
-            <div className={styles.cardSupp}>Имя поста:</div> <span>sunt aut facere repellat provident occaecati excepturi optio reprehenderit</span>
+            <div className={styles.cardSupp}>Имя поста:</div> <span>{post.title}</span>
          </p>
          <div className={styles.cardPreview}>
-            <p className={styles.cardBody}>ut aspernatur corporis harum nihil quis provident sequi\nmollitia nobis aliquid molestiae\nperspiciatis et ea nemo ab reprehenderit accusantium quas\nvoluptate dolores velit et doloremque molestiae</p>
+            <p className={styles.cardBody}>{post.body}</p>
          </div>
       </div>
    )

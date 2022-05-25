@@ -1,0 +1,12 @@
+@import '../../../styles/variable.scss';
+
+.post {
+
+   &Body {}
+
+   &Text {
+      color: $fontColorGrey;
+      font-size: 1.3rem;
+      line-height: 1.1em;
+   }
+}

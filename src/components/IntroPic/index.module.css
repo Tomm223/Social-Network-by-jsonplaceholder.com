@@ -1,0 +1,56 @@
+.intro {
+  width: 100%;
+  height: 100vh;
+  padding-top: 70px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.introImg {
+  height: 70px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.introBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.introItem {
+  position: relative;
+  margin-bottom: 1rem;
+}
+.introGradient {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(50% 50% at 50% 50%, #000000 0%, rgba(0, 0, 0, 0) 100%);
+  width: 270%;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.introTitle {
+  line-height: 60px;
+  font-size: 50px;
+  font-weight: 700;
+  color: #fff;
+}
+.introText {
+  position: relative;
+  z-index: 23;
+}
+.introSupp {
+  z-index: 2;
+  color: #fff;
+  font-size: 30px;
+  list-style: 36px;
+  font-weight: 700;
+  z-index: 2;
+}/*# sourceMappingURL=index.module.css.map */

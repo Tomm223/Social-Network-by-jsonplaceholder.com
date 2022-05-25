@@ -1,0 +1,18 @@
+.user {
+  padding-top: 100px;
+}
+.userHR {
+  margin: 2rem 0;
+}
+.userPosts {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(23%, 50%));
+  grid-template-rows: 1fr 1fr;
+  gap: 15px;
+}
+.userPostsTitle {
+  font-size: 1.75rem;
+  font-weight: 500;
+  margin-bottom: 1em;
+}/*# sourceMappingURL=index.module.css.map */

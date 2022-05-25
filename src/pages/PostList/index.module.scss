@@ -1,0 +1,23 @@
+@import '../../styles/variable.scss';
+
+.posts {
+   width: 100%;
+   padding-top: 2em;
+
+   &Head {}
+
+   &Title {
+      font-size: 35px;
+      line-height: 1.1em;
+      font-weight: 500;
+   }
+
+   &List {
+      width: 100%;
+
+   }
+
+   &Block {
+      margin-bottom: 1.5em;
+   }
+}

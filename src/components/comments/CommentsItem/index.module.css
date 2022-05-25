@@ -1,0 +1,24 @@
+.card {
+  width: 100%;
+  padding: 1rem 2rem;
+  border-top: 1px solid #DADADA;
+}
+.cardTitle {
+  display: flex;
+  margin-bottom: 0.5em;
+}
+.cardSupp {
+  color: rgba(0, 0, 0, 0.41);
+  font-weight: 400;
+  white-space: nowrap;
+  margin-right: 0.5rem;
+}
+.cardName {
+  font-weight: 600;
+  margin-bottom: 0.5em;
+}
+.cardText {
+  color: rgba(0, 0, 0, 0.8);
+  font-size: 1rem;
+  line-height: 1.1em;
+}/*# sourceMappingURL=index.module.css.map */

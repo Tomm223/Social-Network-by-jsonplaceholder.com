@@ -1,0 +1,19 @@
+.userHead {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1em;
+}
+.userAva {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: #DADADA;
+  display: flex;
+  justify-self: start;
+  justify-content: center;
+  overflow: hidden;
+  margin-right: 1em;
+}
+.userTitle {
+  font-size: 1.75rem;
+}/*# sourceMappingURL=index.module.css.map */

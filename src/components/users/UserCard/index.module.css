@@ -1,0 +1,72 @@
+.card {
+  cursor: pointer;
+  padding: 1rem 2rem;
+  border: 1px solid #DADADA;
+}
+.card:hover {
+  border: 1px solid #000;
+}
+.cardHead {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1em;
+}
+.cardAva {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: #DADADA;
+  display: flex;
+  justify-self: start;
+  justify-content: center;
+  overflow: hidden;
+  margin-right: 1em;
+}
+.cardInfo {
+  border: 1px solid #000;
+  padding: 0;
+  display: flex;
+}
+.cardInfoItem {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  padding: 0.75em 1.5em;
+}
+.cardInfoItem:first-child {
+  border-right: 1px solid #000;
+}
+.cardTitle {
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+.cardName {
+  font-size: 1.1rem;
+  line-height: calc(1.1rem + 5px);
+  font-weight: 700;
+  display: flex;
+  margin-bottom: 1rem;
+}
+.cardSupp {
+  color: rgba(0, 0, 0, 0.41);
+  font-weight: 400;
+  white-space: nowrap;
+  margin-right: 0.5rem;
+}
+.cardPreview {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+.cardPreview::after {
+  content: "...";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: #fff;
+}
+.cardBody {
+  white-space: nowrap;
+}/*# sourceMappingURL=index.module.css.map */

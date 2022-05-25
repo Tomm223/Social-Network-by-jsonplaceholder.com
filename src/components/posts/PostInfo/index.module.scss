@@ -1,0 +1,22 @@
+@import '../../../styles/variable.scss';
+
+.post {
+   &Name {
+      font-size: $fontSizeTitleCard;
+      font-weight: 600;
+   }
+
+   &Info {
+
+      &Item {
+         display: flex;
+         margin-bottom: 1rem;
+      }
+   }
+
+   &Supp {
+      font-size: $fontSizeTitleCard;
+      color: $fontColorPlaceHolder;
+      margin-right: .5em;
+   }
+}

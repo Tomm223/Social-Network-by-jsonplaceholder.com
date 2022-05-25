@@ -1,0 +1,13 @@
+.postName {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+.postInfoItem {
+  display: flex;
+  margin-bottom: 1rem;
+}
+.postSupp {
+  font-size: 1.3rem;
+  color: rgba(0, 0, 0, 0.41);
+  margin-right: 0.5em;
+}/*# sourceMappingURL=index.module.css.map */

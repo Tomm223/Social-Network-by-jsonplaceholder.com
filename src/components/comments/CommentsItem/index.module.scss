@@ -1,0 +1,32 @@
+@import '../../../styles/variable.scss';
+
+.card {
+   width: 100%;
+   padding: 1rem 2rem;
+   border-top: 1px solid $borderBlurColor;
+
+   &Title {
+      display: flex;
+      margin-bottom: .5em;
+   }
+
+   &Supp {
+      color: $fontColorPlaceHolder;
+      font-weight: 400;
+      white-space: nowrap;
+      margin-right: .5rem;
+   }
+
+   &Name {
+      font-weight: 600;
+      margin-bottom: .5em;
+   }
+
+   &Body {}
+
+   &Text {
+      color: $fontColorGrey;
+      font-size: 1rem;
+      line-height: 1.1em;
+   }
+}

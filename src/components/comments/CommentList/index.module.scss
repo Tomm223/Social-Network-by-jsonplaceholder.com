@@ -1,0 +1,26 @@
+@import '../../../styles/variable.scss';
+
+.comments {
+   padding-bottom: 2em;
+
+   &Title {
+      margin-bottom: 2em;
+   }
+
+   &Supp {
+      font-size: $fontSizeLogo;
+      color: $fontColorPlaceHolder;
+      font-weight: 600;
+   }
+
+   &List {
+      width: 80%;
+      margin: 0 auto;
+      margin-bottom: 1em;
+   }
+
+   &Btn {
+      width: 15em;
+      margin: 0 auto;
+   }
+}

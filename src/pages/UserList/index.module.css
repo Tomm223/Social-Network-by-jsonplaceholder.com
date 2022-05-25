@@ -1,0 +1,15 @@
+.posts {
+  width: 100%;
+  padding-top: 2em;
+}
+.postsTitle {
+  font-size: 35px;
+  line-height: 1.1em;
+  font-weight: 500;
+}
+.postsList {
+  width: 100%;
+}
+.postsBlock {
+  margin-bottom: 1.5em;
+}/*# sourceMappingURL=index.module.css.map */

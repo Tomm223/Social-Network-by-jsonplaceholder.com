@@ -1,6 +1,11 @@
 import React from 'react';
 import { Route, Routes, BrowserRouter } from 'react-router-dom'
-import Layout from '../Layout';
+import Layout from '../../pages/Layout';
+import PostList from '../../pages/PostList';
+import PostPage from '../../pages/PostPage';
+import UserPage from '../../pages/User';
+import UsersList from '../../pages/UserList';
+import IntroPic from '../IntroPic';
 
 
 function App() {
@@ -9,6 +14,26 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Layout />} >
+            <Route index element={
+              <div className='containerSmall'>
+                <PostList />
+              </div>
+            } />
+            <Route path='users/all' element={
+              <div className='containerSmall'>
+                <UsersList />
+              </div>
+            } />
+            <Route path='users/' element={
+              <div className='containerBig'>
+                <UserPage />
+              </div>
+            } />
+            <Route path='posts/' element={
+              <div className='containerBig'>
+                <PostPage />
+              </div>
+            } />
 
           </Route>
         </Routes>
