@@ -1,0 +1,52 @@
+@import '../../../styles/variable.scss';
+
+.form {
+   width: 100%;
+
+   &Block {
+      margin-bottom: 1em;
+   }
+
+   &Input {
+      width: 60%;
+      padding: 5px 10px;
+      font-family: $fontFamily;
+      font-size: 18px;
+   }
+
+   &TextArea {
+      font-size: 18px;
+      width: 100%;
+      height: 200px;
+      padding: 5px 10px;
+      font-family: $fontFamily;
+      resize: none;
+   }
+
+   &Error {
+      color: red;
+   }
+
+   &BtnBlock {
+      width: 60%;
+      margin: 0 auto;
+   }
+}
+
+
+@media screen and (max-width:768px) {
+   .form {
+      &Input {
+         width: 100%;
+      }
+   }
+}
+
+@media screen and (max-width:500px) {
+   .form {
+
+      &BtnBlock {
+         width: 100%;
+      }
+   }
+}

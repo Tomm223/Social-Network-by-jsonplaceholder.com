@@ -20,3 +20,31 @@
       margin-right: .5em;
    }
 }
+
+@media screen and (max-width:768px) {
+
+   .postName {
+      font-weight: normal;
+      font-size: 24px;
+      line-height: 29px;
+   }
+
+   .postSupp {
+      font-size: 24px;
+      line-height: 29px;
+   }
+}
+
+@media screen and (max-width:425px) {
+
+   .postName {
+      font-weight: normal;
+      font-size: 18px;
+      line-height: 22px;
+   }
+
+   .postSupp {
+      font-size: 18px;
+      line-height: 22px;
+   }
+}

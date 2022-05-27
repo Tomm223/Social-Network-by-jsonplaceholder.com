@@ -1,17 +1,22 @@
 import { FC } from 'react'
 import { isTemplateExpression } from 'typescript'
-import { getUserByEmail } from '../../../fetch'
+import { getUserByEmail } from '../../../assests/fetch'
 import { useNavigateParams } from '../../../hooks/useNavigateParams'
 import { CommentsType } from '../../../types/comments'
+import { LoadingDefault } from '../../UI/Loading'
 import CommentItem from '../CommentsItem'
 import styles from './index.module.scss'
 
 interface commentsProps {
-   comments: CommentsType[]
+   comments: CommentsType[],
+   isLoading: boolean
 }
 
-const CommentList: FC<commentsProps> = ({ comments }) => {
+const CommentList: FC<commentsProps> = ({ comments, isLoading }) => {
 
+   if (isLoading) {
+      return <LoadingDefault isLoading={isLoading} />
+   }
 
    return (
       <div className={styles.comments}>
@@ -31,10 +36,11 @@ const CommentList: FC<commentsProps> = ({ comments }) => {
                   )
                })
             }
+            {!comments.length &&
+               <h1>Пока Комментариев нет</h1>
+            }
          </ul>
-         <div className={styles.commentsBtn}>
-            <button className={'BtnBlack'}>Оставить Комментарий</button>
-         </div>
+
       </div>
    )
 }

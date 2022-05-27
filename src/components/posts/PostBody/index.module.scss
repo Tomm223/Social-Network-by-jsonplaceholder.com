@@ -5,8 +5,17 @@
    &Body {}
 
    &Text {
+      margin: 0 auto;
       color: $fontColorGrey;
       font-size: 1.3rem;
       line-height: 1.1em;
+   }
+}
+
+
+@media screen and (max-width:425px) {
+   .postText {
+      font-size: 17px;
+      line-height: 19px;
    }
 }

@@ -28,7 +28,7 @@ const UserInfoList: FC<InfoProps> = ({ user }) => {
             },
             {
                name: 'Телефон',
-               value: user.email
+               value: user.phone
             },
             {
                name: 'Веб-сайт',

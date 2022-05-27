@@ -1,24 +1,22 @@
 .intro {
    width: 100%;
-   height: 100vh;
+   max-width: 1366px;
+   margin: 0 auto;
+   height: auto;
    padding-top: 70px;
    position: relative;
-   display: flex;
-   justify-content: center;
-   align-items: center;
 
    &Img {
-      height: 70px;
-      position: absolute;
-      top: 0;
-      left: 0;
       width: 100%;
-      height: 100%;
+      height: auto;
    }
 
 
    &Block {
-
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -35,7 +33,8 @@
       left: 50%;
       transform: translate(-50%, -50%);
       background: radial-gradient(50% 50% at 50% 50%, #000000 0%, rgba(0, 0, 0, 0) 100%);
-      width: 270%;
+      max-width: 90vw;
+      min-width: 200%;
       height: 250px;
       display: flex;
       justify-content: center;
@@ -51,6 +50,7 @@
 
    &Text {
       position: relative;
+      text-align: center;
       z-index: 23;
    }
 
@@ -61,5 +61,12 @@
       list-style: 36px;
       font-weight: 700;
       z-index: 2;
+   }
+}
+
+
+@media screen and (max-width:768px) {
+   .intro {
+      display: none;
    }
 }

@@ -3,24 +3,27 @@ import { Route, Routes, BrowserRouter } from 'react-router-dom'
 import Layout from '../../pages/Layout';
 import PostList from '../../pages/PostList';
 import PostPage from '../../pages/PostPage';
-import UserPage from '../../pages/User';
+import UserPage from '../../pages/UserPage';
 import UsersList from '../../pages/UserList';
-import IntroPic from '../IntroPic';
+import { useResponsive } from '../../hooks/useResponsive';
 
 
 function App() {
+
+  const { maxTablet } = useResponsive()
+
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Layout />} >
             <Route index element={
-              <div className='containerSmall'>
+              <div className={maxTablet ? 'containerTabletForHome' : 'containerSmall'}>
                 <PostList />
               </div>
             } />
             <Route path='users/all' element={
-              <div className='containerSmall'>
+              <div className={maxTablet ? 'containerTabletForHome' : 'containerSmall'}>
                 <UsersList />
               </div>
             } />

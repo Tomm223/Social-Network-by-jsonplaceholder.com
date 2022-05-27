@@ -3,7 +3,8 @@
 .post {
    &Link {
       text-decoration-line: underline;
-      color: $LinkColor
+      color: $LinkColor;
+      white-space: nowrap;
    }
 
 
@@ -38,5 +39,24 @@
       grid-column-start: 2;
       grid-column-end: 3;
 
+   }
+}
+
+@media screen and (max-width:768px) {
+   .postHead {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+
+   }
+}
+
+@media screen and (max-width:325px) {
+   .postHead {
+      flex-wrap: wrap;
+
+      &Item {
+         margin-bottom: .5em;
+      }
    }
 }

@@ -1,52 +1,66 @@
-import { FC, useEffect, useState } from "react";
-import { handlePostCard } from "../../assests/navigate";
-import PostCard from "../../components/posts/PostCard";
+import { FC, useEffect, useReducer, useState } from "react";
 import UserCard from "../../components/users/UserCard";
-import { getPosts, getUsers } from "../../fetch";
 import { useNavigateParams } from "../../hooks/useNavigateParams";
-import { CommentsType } from "../../types/comments";
-import { PostType } from "../../types/post";
-import { User } from "../../types/user";
 import styles from "./index.module.scss";
+import { useTypeSelector } from "../../hooks/useTypeSelector";
+import { useAction } from "../../hooks/useAction";
+import { LoadingDefault } from "../../components/UI/Loading";
+import { AlertDefault } from "../../components/UI/Alert";
+import { useResponsive } from "../../hooks/useResponsive";
 
-interface UsersListProps {
-   posts: PostType[]
-}
+
 
 const UsersList: FC = () => {
-   const [list, setList] = useState<User[]>([])
+
+   const users = useTypeSelector(state => state.userList.users)
+   const isLoading = useTypeSelector(state => state.userList.loading)
+   const error = useTypeSelector(state => state.userList.error)
+   const { usersListChange } = useAction()
    useEffect(() => {
-      const getPost = async () => {
-         const resp = await getUsers()
-         setList(resp)
-      }
-      getPost()
+      usersListChange()
    }, [])
 
    //navigate for post to PostPage
    const navigateSearch = useNavigateParams()
 
    return (
-      <div className={styles.posts}>
-         <div className={styles.postsHead}>
-            <p className={styles.postsTitle}>ПОЛЬЗОВАТЕЛИ</p>
-         </div>
-         <hr className='hr' />
-         <ul className={styles.postsList}>
+      <>
+         <AlertDefault error={error} />
+         <div className={styles.posts}>
+            <div className={styles.postsHead}>
+               <p className={styles.postsTitle}>ПОЛЬЗОВАТЕЛИ</p>
+            </div>
+            <hr className='hr' />
             {
-               list.map((user, i) => {
-                  return (
-                     <div key={i} className={styles.postsBlock}>
-                        <UserCard
-                           onClick={() => navigateSearch('/users/', { id: user.id })}
-                           user={user} />
-                     </div>
-                  )
-               })
+               isLoading ?
+                  <div className="ds-flex-center">
+                     <LoadingDefault isLoading={isLoading} />
+                  </div>
+                  :
+                  <ul className={styles.postsList}>
+                     {
+                        users.map((user, i) => {
+                           return (
+                              <div key={i} className={styles.postsBlock}>
+                                 <UserCard
+                                    onClick={() => navigateSearch('/users/', { id: user.id })}
+                                    user={user} />
+                              </div>
+                           )
+                        })
+                     }
+                  </ul>
             }
-         </ul>
-      </div>
+
+
+         </div>
+      </>
    )
 }
 
 export default UsersList
+
+/*
+ 
+
+*/

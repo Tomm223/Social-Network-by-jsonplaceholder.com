@@ -32,3 +32,16 @@
       }
    }
 }
+
+@media screen and (max-width:768px) {
+   .user {
+
+      &Info {
+
+         &Text {
+            display: flex;
+            flex-wrap: wrap;
+         }
+      }
+   }
+}

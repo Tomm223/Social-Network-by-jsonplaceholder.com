@@ -1,0 +1,28 @@
+@import '../../../styles/variable.scss';
+
+.back {
+   position: fixed;
+   top: 0;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   background-color: $BackGroundModal ;
+   z-index: 999999;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.modal {
+   background-color: #fff;
+   padding: 1em 2em;
+   font-family: $fontFamily;
+   width: 700px;
+
+   &Head {}
+
+   &Title {
+      font-size: 1.5rem;
+      line-height: 40px;
+   }
+}

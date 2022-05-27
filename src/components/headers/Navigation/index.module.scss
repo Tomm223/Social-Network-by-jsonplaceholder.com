@@ -23,3 +23,24 @@
       font-weight: 600;
    }
 }
+
+@media screen and (max-width:768px) {
+   .nav {
+      background-color: inherit;
+
+      &List {
+         display: flex;
+         flex-direction: column;
+      }
+
+      &Item {
+         margin-bottom: 1em;
+      }
+
+      &Btn {
+         font-size: 25px;
+         padding: 2em;
+      }
+   }
+
+}

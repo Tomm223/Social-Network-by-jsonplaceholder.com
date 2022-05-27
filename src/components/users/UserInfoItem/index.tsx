@@ -17,9 +17,9 @@ const UserInfoItem: FC<UserInfoItemProps> = ({ title, info }) => {
          <div className={styles.userInfoList}>
             <h3 className={styles.userInfoTitle}>{title}:</h3>
             {
-               info.map((item: infoArrayItem) => {
+               info.map((item, i) => {
                   return (
-                     <div className={styles.userInfoItem}>
+                     <div key={Math.random() + i} className={styles.userInfoItem}>
                         <span className={styles.userInfoSupp}>{item.name}:</span>
                         <p className={styles.userInfoText}>{item.value}</p>
                      </div>

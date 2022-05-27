@@ -1,0 +1,21 @@
+@import '../../styles/variable.scss';
+
+.user {
+   padding-top: 100px;
+   padding-bottom: 50px;
+
+   &HR {
+      margin: 2rem 0;
+   }
+
+   &PostsTitle {
+      font-size: $fontSizeLogo;
+      font-weight: 500;
+      margin-bottom: 1em;
+   }
+
+   &BtnBlock {
+      margin: 0 auto;
+      width: 240px;
+   }
+}

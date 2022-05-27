@@ -1,49 +1,63 @@
 import { FC, useEffect, useState } from "react";
-import { handlePostCard } from "../../assests/navigate";
 import PostCard from "../../components/posts/PostCard";
-import { getPosts } from "../../fetch";
+import { getPosts } from "../../assests/fetch";
 import { useNavigateParams } from "../../hooks/useNavigateParams";
-import { CommentsType } from "../../types/comments";
 import { PostType } from "../../types/post";
 import styles from "./index.module.scss";
+import { useTypeSelector } from "../../hooks/useTypeSelector";
+import { useAction } from "../../hooks/useAction";
+import { AlertDefault } from "../../components/UI/Alert";
+import { LoadingDefault } from "../../components/UI/Loading";
+import { loadavg } from "os";
 
-interface PostListProps {
-   posts: PostType[]
-}
 
 const PostList: FC = () => {
-   const [list, setList] = useState<PostType[]>([])
+
+   const posts = useTypeSelector(state => state.postList.posts)
+   const isLoading = useTypeSelector(state => state.postList.loading)
+   const error = useTypeSelector(state => state.postList.error)
+
+   const { postListChange } = useAction()
+
    useEffect(() => {
-      const getPost = async () => {
-         const resp = await getPosts()
-         setList(resp)
-      }
-      getPost()
+      postListChange()
    }, [])
 
    //navigate for post to PostPage
    const navigateSearch = useNavigateParams()
 
+
+
    return (
-      <div className={styles.posts}>
-         <div className={styles.postsHead}>
-            <p className={styles.postsTitle}>ПОСТЫ</p>
-         </div>
-         <hr className='hr' />
-         <ul className={styles.postsList}>
+      <>
+         <AlertDefault error={error} />
+         <div className={styles.posts}>
+            <div className={styles.postsHead}>
+               <p className={styles.postsTitle}>ПОСТЫ</p>
+            </div>
+            <hr className='hr' />
             {
-               list.map((post: PostType, i) => {
-                  return (
-                     <div key={i} className={styles.postsBlock}>
-                        <PostCard
-                           onClick={() => navigateSearch('/posts/', { id: post.id })}
-                           post={post} />
-                     </div>
-                  )
-               })
+               isLoading ?
+                  <div className="ds-flex-center">
+                     <LoadingDefault isLoading={isLoading} />
+                  </div>
+                  :
+                  <ul className={styles.postsList}>
+                     {
+                        posts.map((post, i) => {
+                           return (
+                              <div key={i} className={styles.postsBlock}>
+                                 <PostCard
+                                    onClick={() => navigateSearch('/posts/', { id: post.id })}
+                                    post={post} />
+                              </div>
+                           )
+                        })
+                     }
+                  </ul>
             }
-         </ul>
-      </div>
+         </div>
+      </>
    )
 }
 

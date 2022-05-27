@@ -50,3 +50,24 @@
 
 
 }
+
+@media screen and (max-width:500px) {
+   .cardName {
+      line-height: calc($fontSizeNameCard + 2px);
+      font-weight: normal;
+   }
+
+   .cardSupp {
+      white-space: inherit;
+   }
+}
+
+@media screen and (max-width:425px) {
+   .card {
+      padding: 1rem 1rem;
+
+      &Name {
+         font-size: 1rem;
+      }
+   }
+}
