@@ -1,0 +1,36 @@
+@import '../../../styles//variable.scss';
+
+.search {
+   width: 100%;
+   height: 100%;
+   display: grid;
+   grid-template-columns: 1fr 60px;
+}
+
+.input {
+   padding: 5px 10px;
+   font-family: $fontFamily;
+   font-size: $fontSizeTitleCard;
+   border: 1px solid $borderBlurColor;
+   color: $fontColorGrey;
+
+   &:focus {
+      outline: none;
+   }
+}
+
+.btn {
+   border: 0;
+   padding: 15px;
+   height: 60px;
+   background-color: #318CE7;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   cursor: pointer;
+
+   img {
+      width: 100%;
+      height: 100%;
+   }
+}

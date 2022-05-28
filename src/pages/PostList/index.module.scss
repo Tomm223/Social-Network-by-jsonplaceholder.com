@@ -4,7 +4,9 @@
    width: 100%;
    padding-top: 2em;
 
-   &Head {}
+   &Head {
+      margin-bottom: 1em;
+   }
 
    &Title {
       font-size: 35px;
@@ -20,4 +22,5 @@
    &Block {
       margin-bottom: 1.5em;
    }
+
 }

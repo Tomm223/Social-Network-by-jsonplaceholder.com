@@ -9,11 +9,13 @@ import { useAction } from "../../hooks/useAction";
 import { AlertDefault } from "../../components/UI/Alert";
 import { LoadingDefault } from "../../components/UI/Loading";
 import { loadavg } from "os";
+import Search from "../../components/UI/Search";
 
 
 const PostList: FC = () => {
 
    const posts = useTypeSelector(state => state.postList.posts)
+   const [postFilt, setPostFilt] = useState<PostType[]>([])
    const isLoading = useTypeSelector(state => state.postList.loading)
    const error = useTypeSelector(state => state.postList.error)
 
@@ -26,7 +28,17 @@ const PostList: FC = () => {
    //navigate for post to PostPage
    const navigateSearch = useNavigateParams()
 
-
+   useEffect(() => {
+      handleSearch('')
+   }, [posts])
+   function handleSearch(value: string) {
+      if (value.trim()) {
+         setPostFilt(posts.filter((item) => item.title.toLowerCase().includes(value.toLowerCase())))
+      }
+      else {
+         setPostFilt(posts)
+      }
+   }
 
    return (
       <>
@@ -35,6 +47,7 @@ const PostList: FC = () => {
             <div className={styles.postsHead}>
                <p className={styles.postsTitle}>ПОСТЫ</p>
             </div>
+            <Search onSubmit={handleSearch} />
             <hr className='hr' />
             {
                isLoading ?
@@ -44,15 +57,18 @@ const PostList: FC = () => {
                   :
                   <ul className={styles.postsList}>
                      {
-                        posts.map((post, i) => {
-                           return (
-                              <div key={i} className={styles.postsBlock}>
-                                 <PostCard
-                                    onClick={() => navigateSearch('/posts/', { id: post.id })}
-                                    post={post} />
-                              </div>
-                           )
-                        })
+                        postFilt.length ?
+                           postFilt.map((post, i) => {
+                              return (
+                                 <div key={i} className={styles.postsBlock}>
+                                    <PostCard
+                                       onClick={() => navigateSearch('/posts/', { id: post.id })}
+                                       post={post} />
+                                 </div>
+                              )
+                           })
+                           :
+                           <h1>Не найдено...</h1>
                      }
                   </ul>
             }
