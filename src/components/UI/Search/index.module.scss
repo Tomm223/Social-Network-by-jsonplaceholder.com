@@ -34,3 +34,13 @@
       height: 100%;
    }
 }
+
+@media screen and (max-width:425px) {
+   .search {
+      grid-template-columns: 1fr 45px;
+   }
+
+   .btn {
+      height: 45px;
+   }
+}

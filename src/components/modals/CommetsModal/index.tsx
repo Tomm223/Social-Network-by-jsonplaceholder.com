@@ -28,7 +28,7 @@ const CommentsModal: FC<CommModal> = ({ postID, onClose }) => {
       <div ref={backModal} onClick={handleClose} className={styles.back}>
          <div className={styles.modal}>
             <div onClick={onClose} className={styles.modalClose}>
-               <img src="/img/cancel.png" alt="" />
+               <img src="/img/close-button.png" alt="" />
             </div>
             <div className={styles.modalHead}>
                <h3 className={styles.modalTitle}>

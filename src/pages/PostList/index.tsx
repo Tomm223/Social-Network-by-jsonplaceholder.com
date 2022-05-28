@@ -29,9 +29,10 @@ const PostList: FC = () => {
    //navigate for post to PostPage
    const navigateSearch = useNavigateParams()
 
+   // get search quiry
    const [searchParams, setSearchParams] = useSearchParams()
    const search = searchParams.get('search')
-
+   //put to list filter posts 
    useEffect(() => {
       if (posts && !search) {
          setPostFilt(posts)
