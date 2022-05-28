@@ -10,6 +10,7 @@ import { AlertDefault } from "../../components/UI/Alert";
 import { LoadingDefault } from "../../components/UI/Loading";
 import { loadavg } from "os";
 import Search from "../../components/UI/Search";
+import { useSearchParams } from "react-router-dom";
 
 
 const PostList: FC = () => {
@@ -28,17 +29,20 @@ const PostList: FC = () => {
    //navigate for post to PostPage
    const navigateSearch = useNavigateParams()
 
+   const [searchParams, setSearchParams] = useSearchParams()
+   const search = searchParams.get('search')
+
    useEffect(() => {
-      handleSearch('')
-   }, [posts])
-   function handleSearch(value: string) {
-      if (value.trim()) {
-         setPostFilt(posts.filter((item) => item.title.toLowerCase().includes(value.toLowerCase())))
-      }
-      else {
+      if (posts && !search) {
          setPostFilt(posts)
       }
-   }
+      if (search?.trim()) {
+         setPostFilt(posts.filter((item) => item.title.toLowerCase().includes(search.toLowerCase())))
+      }
+
+   }, [posts, search])
+
+
 
    return (
       <>
@@ -47,7 +51,7 @@ const PostList: FC = () => {
             <div className={styles.postsHead}>
                <p className={styles.postsTitle}>ПОСТЫ</p>
             </div>
-            <Search onSubmit={handleSearch} />
+            <Search />
             <hr className='hr' />
             {
                isLoading ?
