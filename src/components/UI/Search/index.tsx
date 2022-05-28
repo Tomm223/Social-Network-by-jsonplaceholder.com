@@ -1,5 +1,6 @@
-import React, { FC, useState } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import { useLocation, useNavigationType, useSearchParams } from 'react-router-dom'
+import { serialize } from 'v8'
 import { useNavigateParams } from '../../../hooks/useNavigateParams'
 import styles from './index.module.scss'
 
@@ -8,6 +9,15 @@ interface SearchProps {
 }
 
 const Search: FC = () => {
+   //автонаписание запроса
+   const [searchParams, setSearchParams] = useSearchParams()
+   const search = searchParams.get('search')
+   useEffect(() => {
+      if (search?.trim()) {
+         setValue(search)
+      }
+   }, [search])
+   // часть отправления на урд запросы
    const [value, setValue] = useState('')
    const navigateSearch = useNavigateParams()
    const location = useLocation()
